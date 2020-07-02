@@ -4,26 +4,27 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Custom Homepage</title>
-      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="./css/style.min.css" />
       <script src="index.js"></script>
    </head>
    <body>
-      <form id="form">
-         <input type="text" />
-      </form>
       <div class="container">
-         <div class="grid-item wide bg1"></div>
+         <div class="grid-item wide bg1 dark" id="datetime"></div>
          <div class="grid-item bg1"></div>
          <div class="grid-item large bg2"></div>
          <div class="grid-item tall bg1"></div>
          <div class="grid-item bg1"></div>
          <div class="grid-item bg2"></div>
-         <div class="grid-item wide bg1"></div>
-         <div class="grid-item tall bg1"></div>
-         <div class="grid-item bg2"></div>
+         <div class="grid-item wide bg1">
+            <form id="form">
+               <input id="input" class="light" type="text" />
+            </form>
+         </div>
+         <div class="grid-item tall bg2"></div>
+         <div class="grid-item bg1"></div>
          <div class="grid-item wide bg2"></div>
          <div class="grid-item bg2"></div>
-         <div class="grid-item bg2"></div>
+         <div class="grid-item bg1"></div>
       </div>
    </body>
 </html>
