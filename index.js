@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                'src',
                `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`
             )
-            weatherTemp.innerHTML = `<h2>${Math.floor(res.main.temp)}</h2><h3>&deg;C</h3>`
+            weatherTemp.innerHTML = `<h2>${Math.round(res.main.temp)}</h2><h3>&deg;C</h3>`
          })
    }
 
