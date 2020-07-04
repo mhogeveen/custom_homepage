@@ -7,23 +7,6 @@
    padding: 0;
    margin: 0;
 }
-#form {
-   width: 80%;
-   #input {
-      padding: 0.5rem 1rem;
-      background: transparent;
-      border-radius: 50px;
-      border: 2px solid #fff;
-      width: 100%;
-      transition: box-shadow 500ms ease-out;
-      text-align: center;
-
-      &:focus {
-         outline: none;
-         box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
-      }
-   }
-}
 
 .container {
    width: 100%;
@@ -57,7 +40,7 @@
 
    .bg2 {
       background-image: url(../assets/bg2.jpg);
-      background-position: bottom center;
+      background-position: top center;
    }
 }
 
@@ -93,4 +76,37 @@ h3 {
 
 .light {
    color: #fff;
+}
+
+#form {
+   width: 80%;
+   #input {
+      padding: 0.5rem 1rem;
+      background: transparent;
+      border-radius: 50px;
+      border: 2px solid #fff;
+      width: 100%;
+      transition: box-shadow 500ms ease-out;
+      text-align: center;
+
+      &:focus {
+         outline: none;
+         box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.5);
+      }
+   }
+}
+
+#weather {
+   &_icon {
+      transition: transform 500ms ease-out;
+      &:hover {
+         transform: scale(1.1);
+      }
+   }
+   &_temp {
+      h2,
+      h3 {
+         display: inline-block;
+      }
+   }
 }
