@@ -16,8 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
    const setWeather = () => {
       const city = 'hilversum'
+      const apiKey = 'd98b5e820cf42990cd49cddf707d4a3a'
       fetch(
-         `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=d98b5e820cf42990cd49cddf707d4a3a`
+         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
       )
          .then((res) => res.json())
          .then((res) => {
