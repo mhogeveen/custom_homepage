@@ -3,10 +3,15 @@ document.addEventListener('DOMContentLoaded', () => {
    const input = document.querySelector('#input')
    const weatherIcon = document.querySelector('#weather_icon')
    const weatherTemp = document.querySelector('#weather_temp')
+   const refresh = document.querySelector('#refresh')
 
    form.addEventListener('submit', (e) => {
       e.preventDefault()
       window.open(`https://www.google.com/search?q=${input.value}`, '_self')
+   })
+
+   refresh.addEventListener('click', () => {
+      location.reload()
    })
 
    const datetime = document.querySelector('#datetime')

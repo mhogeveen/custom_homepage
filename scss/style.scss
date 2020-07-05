@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+$light: #fff;
+$dark: #484848;
+
 * {
    font-family: 'Montserrat', sans-serif;
    font-size: 16px;
@@ -11,6 +14,7 @@
 .container {
    width: 100%;
    height: 100vh;
+   padding: 10px;
 
    display: grid;
    grid-template-columns: repeat(5, 1fr);
@@ -20,12 +24,14 @@
    .grid-item {
       background-size: cover;
       background-attachment: fixed;
-      transition: box-shadow 500ms ease-out;
+      transition: box-shadow 500ms ease;
       display: flex;
+      position: relative;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
+      border-radius: 2px;
       box-shadow: 0 0 5px rgba(72, 72, 72, 0.3);
 
       &:hover {
@@ -70,23 +76,22 @@ h3 {
    letter-spacing: 2px;
 }
 
-.dark {
-   color: #484848;
-}
-
-.light {
-   color: #fff;
-}
-
 #form {
-   width: 80%;
+   position: absolute;
+   display: flex;
+   align-items: center;
+   width: 50%;
+   height: 40px;
+   top: calc(50% - 20px);
+   left: 25%;
    #input {
-      padding: 0.5rem 1rem;
-      background: transparent;
+      padding: 0.5rem 2rem;
+      background: $light;
       border-radius: 50px;
-      border: 2px solid #fff;
+      border: 2px solid $light;
       width: 100%;
-      transition: box-shadow 500ms ease-out;
+      box-shadow: 0 0 5px rgba(72, 72, 72, 0.3);
+      transition: box-shadow 500ms ease;
       text-align: center;
 
       &:focus {
@@ -96,9 +101,19 @@ h3 {
    }
 }
 
+.form_icon {
+   position: absolute;
+   height: 18px;
+   width: 18px;
+   left: 10px;
+   fill: $dark;
+   opacity: 0.5;
+   transition: opacity 500ms ease;
+}
+
 #weather {
    &_icon {
-      transition: transform 500ms ease-out;
+      transition: transform 500ms ease;
       &:hover {
          transform: scale(1.1);
       }
@@ -107,6 +122,52 @@ h3 {
       h2,
       h3 {
          display: inline-block;
+         color: $light;
+      }
+   }
+}
+
+#datetime {
+   color: $dark;
+}
+
+#refresh {
+   width: 15%;
+   fill: $dark;
+   cursor: pointer;
+   opacity: 0.5;
+   transition: opacity 500ms ease, transform 2s ease-in-out;
+
+   &:hover {
+      opacity: 0.9;
+      transform: rotate(360deg);
+   }
+}
+
+.webdev {
+   display: grid;
+   gap: 40px;
+   grid-template-columns: repeat(6, 1fr);
+   width: 100%;
+   padding: 20px;
+
+   &_container::before {
+      content: 'webdev';
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      color: $light;
+      font-size: 0.75rem;
+      font-weight: 300;
+   }
+
+   &_icon {
+      grid-column: 1;
+      fill: $light;
+      transition: transform 500ms ease;
+
+      &:hover {
+         transform: scale(1.1);
       }
    }
 }
