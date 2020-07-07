@@ -20,19 +20,34 @@ document.addEventListener('DOMContentLoaded', () => {
    datetime.innerHTML = `<div><h2>${time}</h2><h3>${date}</h3></div>`
 
    const setWeather = () => {
-      const city = 'hilversum'
-      const apiKey = 'd98b5e820cf42990cd49cddf707d4a3a'
-      fetch(
-         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`
-      )
-         .then((res) => res.json())
-         .then((res) => {
-            weatherIcon.setAttribute(
-               'src',
-               `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`
-            )
-            weatherTemp.innerHTML = `<h2>${Math.round(res.main.temp)}</h2><h3>&deg;C</h3>`
+      getCoords = async () => {
+         let lat = 0
+         let lon = 0
+         await window.navigator.geolocation.getCurrentPosition((pos) => {
+            lat = pos.coords.latitude
+            lon = pos.coords.longitude
+            fetchWeather({ lat, lon })
          })
+      }
+
+      const fetchWeather = (props) => {
+         const { lat, lon } = props
+         const apiKey = 'd98b5e820cf42990cd49cddf707d4a3a'
+         fetch(
+            `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`
+         )
+            .then((res) => res.json())
+            .then((res) => {
+               console.log(res)
+               weatherIcon.setAttribute(
+                  'src',
+                  `http://openweathermap.org/img/wn/${res.weather[0].icon}@2x.png`
+               )
+               weatherTemp.innerHTML = `<h2>${Math.round(res.main.temp)}</h2><h3>&deg;C</h3>`
+            })
+      }
+
+      getCoords()
    }
 
    setWeather()
